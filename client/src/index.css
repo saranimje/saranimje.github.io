@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Old+Standard+TT:wght@400;700&family=Uncial+Antiqua&display=swap');
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* Dark Fantasy Colors */
+  --dark-purple: hsl(263, 70%, 35%);
+  --deep-purple: hsl(268, 71%, 32%);
+  --emerald: hsl(158, 90%, 26%);
+  --deep-emerald: hsl(162, 91%, 20%);
+  --royal-gold: hsl(39, 92%, 43%);
+  --deep-gold: hsl(38, 92%, 35%);
+  --prussian: hsl(219, 73%, 33%);
+  --deep-prussian: hsl(220, 73%, 38%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+/* Custom Fantasy Fonts */
+.font-cinzel {
+  font-family: 'Cinzel Decorative', serif;
+}
+
+.font-old-standard {
+  font-family: 'Old Standard TT', serif;
+}
+
+.font-uncial {
+  font-family: 'Uncial Antiqua', serif;
+}
+
+/* Dark Fantasy Colors */
+.text-dark-purple { color: var(--dark-purple); }
+.text-deep-purple { color: var(--deep-purple); }
+.text-emerald { color: var(--emerald); }
+.text-deep-emerald { color: var(--deep-emerald); }
+.text-royal-gold { color: var(--royal-gold); }
+.text-deep-gold { color: var(--deep-gold); }
+.text-prussian { color: var(--prussian); }
+.text-deep-prussian { color: var(--deep-prussian); }
+
+.bg-dark-purple { background-color: var(--dark-purple); }
+.bg-deep-purple { background-color: var(--deep-purple); }
+.bg-emerald { background-color: var(--emerald); }
+.bg-deep-emerald { background-color: var(--deep-emerald); }
+.bg-royal-gold { background-color: var(--royal-gold); }
+.bg-deep-gold { background-color: var(--deep-gold); }
+.bg-prussian { background-color: var(--prussian); }
+.bg-deep-prussian { background-color: var(--deep-prussian); }
+
+.border-dark-purple { border-color: var(--dark-purple); }
+.border-emerald { border-color: var(--emerald); }
+.border-royal-gold { border-color: var(--royal-gold); }
+.border-prussian { border-color: var(--prussian); }
+
+/* Pixel Art Effects */
+.pixel-art {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.pixel-border {
+  border: 2px solid var(--royal-gold);
+  border-image: linear-gradient(45deg, var(--royal-gold), var(--deep-gold)) 1;
+}
+
+/* Animations */
+@keyframes pixelFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes dragonCartwheel {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.animate-pixel-float {
+  animation: pixelFloat 2s ease-in-out infinite;
+}
+
+.animate-dragon-cartwheel {
+  animation: dragonCartwheel 1s ease-in-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+.animate-typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter 2s steps(40, end);
+}
+
+/* Page Transitions */
+.page-transition {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tooltip Styles */
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 1000;
+}
+
+.tooltip-trigger:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Hover Effects */
+.hover-scale {
+  transition: transform 0.3s ease-in-out;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Medieval Loading Spinner */
+.medieval-spinner {
+  border: 3px solid var(--muted);
+  border-radius: 50%;
+  border-top: 3px solid var(--royal-gold);
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--royal-gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--deep-gold);
+}
