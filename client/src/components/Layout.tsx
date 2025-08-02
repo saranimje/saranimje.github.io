@@ -60,14 +60,12 @@ export function Layout({ children }: LayoutProps) {
           </div>
         </nav>
       </header>
-
       {/* Main Content */}
       <main className="pt-20">
         {children}
       </main>
-
       {/* Footer */}
-      <footer className="bg-black border-t-2 border-royal-gold py-8">
+      <footer className="bg-black border-t-2 border-royal-gold py-8 pt-[50px] pb-[50px]">
         <div className="container mx-auto px-4 text-center">
           <div className="flex justify-center items-center space-x-4 mb-4">
             <div className="w-8 h-8 bg-royal-gold rounded pixel-art"></div>
