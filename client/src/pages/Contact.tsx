@@ -39,7 +39,7 @@ export default function Contact() {
     <PageTransition>
       <section className="min-h-screen py-20 bg-gradient-to-br from-gray-900 to-black">
         <div className="container mx-auto px-4">
-          <h2 className="text-5xl font-cinzel text-royal-gold text-center mb-16">
+          <h2 className="text-5xl font-medieval text-royal-gold text-center mb-16 drop-shadow-lg">
             🕊️ The Raven's Perch
           </h2>
           

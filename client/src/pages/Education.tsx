@@ -6,7 +6,7 @@ export default function Education() {
     <PageTransition>
       <section className="min-h-screen py-20 bg-gradient-to-br from-emerald to-deep-emerald dark:from-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4">
-          <h2 className="text-5xl font-cinzel text-royal-gold text-center mb-16">
+          <h2 className="text-5xl font-medieval text-royal-gold text-center mb-16 drop-shadow-lg">
             📚 Path of Learning
           </h2>
           

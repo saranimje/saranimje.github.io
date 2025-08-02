@@ -21,14 +21,14 @@ export function Layout({ children }: LayoutProps) {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="min-h-screen bg-gray-900 dark:bg-black text-gray-100 font-old-standard transition-colors duration-300">
+    <div className="min-h-screen bg-background text-foreground font-old-standard transition-colors duration-300">
       {/* Header Navigation */}
       <header className="fixed top-0 w-full z-50 bg-dark-purple/90 dark:bg-deep-purple/90 backdrop-blur-sm border-b-2 border-royal-gold">
         <nav className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-2">
               <PixelKnight />
-              <h1 className="text-xl font-cinzel text-royal-gold">{personalInfo.name}</h1>
+              <h1 className="text-xl font-medieval text-royal-gold">{personalInfo.name}</h1>
             </div>
             
             <div className="flex items-center space-x-6">
@@ -37,10 +37,10 @@ export function Layout({ children }: LayoutProps) {
                   <Tooltip key={item.path} content={item.tooltip}>
                     <Link
                       href={item.path}
-                      className={`nav-link transition-colors font-cinzel ${
+                      className={`nav-link transition-colors font-cinzel text-sm ${
                         location === item.path
                           ? 'text-royal-gold'
-                          : 'text-gray-200 hover:text-royal-gold'
+                          : 'text-foreground/80 hover:text-royal-gold'
                       }`}
                     >
                       {item.name}
@@ -65,13 +65,30 @@ export function Layout({ children }: LayoutProps) {
         {children}
       </main>
       {/* Footer */}
-      <footer className="bg-black border-t-2 border-royal-gold py-8 pt-[50px] pb-[50px]">
+      <footer className="bg-dark-purple/90 dark:bg-deep-purple/90 border-t-2 border-royal-gold py-8">
         <div className="container mx-auto px-4 text-center">
           <div className="flex justify-center items-center space-x-4 mb-4">
             <div className="w-8 h-8 bg-royal-gold rounded pixel-art"></div>
-            <p className="text-gray-300 font-cinzel">© 2025 {personalInfo.name} - Pixel Knight Resume</p>
+            <p className="text-foreground/80 font-medieval">© 2025 {personalInfo.name} - Pixel Knight Resume</p>
             <div className="w-8 h-8 bg-royal-gold rounded pixel-art"></div>
           </div>
+          
+          {/* Contact Information */}
+          <div className="grid md:grid-cols-3 gap-4 mb-6 max-w-2xl mx-auto">
+            <div className="flex items-center justify-center space-x-2 text-sm">
+              <span className="w-4 h-4 bg-emerald rounded pixel-art flex items-center justify-center text-xs">📱</span>
+              <span className="text-foreground/70">{personalInfo.phone}</span>
+            </div>
+            <div className="flex items-center justify-center space-x-2 text-sm">
+              <span className="w-4 h-4 bg-prussian rounded pixel-art flex items-center justify-center text-xs">✉️</span>
+              <span className="text-foreground/70">{personalInfo.email}</span>
+            </div>
+            <div className="flex items-center justify-center space-x-2 text-sm">
+              <span className="w-4 h-4 bg-royal-gold rounded pixel-art flex items-center justify-center text-xs">📍</span>
+              <span className="text-foreground/70">{personalInfo.location}</span>
+            </div>
+          </div>
+          
           <div className="flex justify-center space-x-6 mb-4">
             <a
               href={personalInfo.linkedin}
@@ -90,7 +107,7 @@ export function Layout({ children }: LayoutProps) {
               💻
             </a>
           </div>
-          <p className="text-gray-500 text-sm">Crafted with ⚔️ and 🛡️ • Built with React & Tailwind CSS</p>
+          <p className="text-foreground/50 text-sm font-cinzel">Crafted with ⚔️ and 🛡️ • Built with React & Tailwind CSS</p>
         </div>
       </footer>
     </div>
