@@ -5,7 +5,7 @@ import { personalInfo } from "../data/resume";
 export default function Home() {
   return (
     <PageTransition>
-      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-dark-purple to-deep-purple dark:from-gray-900 dark:to-black">
+      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-dark-purple to-deep-purple dark:from-gray-900 dark:to-black pt-[100px] pb-[100px]">
         <div className="container mx-auto px-4 text-center">
           <div className="animate-fade-in">
             {/* Hero pixel knight */}
