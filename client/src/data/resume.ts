@@ -42,7 +42,7 @@ export const education: Education[] = [
   {
     id: 'vjti',
     institution: 'Veermata Jijabai Technological Institute (VJTI), Matunga',
-    degree: 'Bachelor of Technology in Electronics and Telecommunication',
+    degree: 'B.Tech in Electronics and Telecommunication',
     grade: '8.74 CGPA',
     year: '2022 - 2026',
     icon: '🏰'
@@ -73,12 +73,12 @@ export const experience: Experience[] = [
     location: 'Mumbai, Maharashtra',
     period: 'May 2025 – July 2025',
     description: [
-      'Independently developed a low-latency robotic arm replicating human arm movement using live video input',
+      'Independently developed a low-latency robotic arm replicating human arm movement via CV',
       'Deployed the system on the edge using Docker for portability',
       'Optimized the processing pipeline for real-time performance and minimal delay'
     ],
     skills: ['Computer Vision', 'Docker', 'Real-time Processing', 'Robotics', 'Python'],
-    icon: '🏰'
+    icon: '👁'
   },
   {
     id: 'ieee',
@@ -92,7 +92,7 @@ export const experience: Experience[] = [
       'Implementing modern web technologies and best practices'
     ],
     skills: ['Web Development', 'React', 'JavaScript', 'Team Leadership'],
-    icon: '🌐'
+    icon: '🌏︎'
   }
 ];
 
@@ -109,7 +109,7 @@ export const projects: Project[] = [
       'Integrated text-to-speech (TTS) functionality'
     ],
     difficulty: 3,
-    icon: '🐉'
+    icon: '/assets/projects/news-analysis.avif'
   },
   {
     id: 'personal-website',
@@ -123,35 +123,7 @@ export const projects: Project[] = [
       'Deployed using GitHub Pages for public access'
     ],
     difficulty: 2,
-    icon: '🐲'
-  },
-  {
-    id: 'bcg-simulation',
-    title: 'BCG Data Science Simulation',
-    description: 'Predicted customer churn to enhance retention strategies',
-    period: 'October 2024',
-    technologies: ['Python', 'Tableau', 'Excel'],
-    achievements: [
-      'Developed predictive models for customer churn analysis',
-      'Created comprehensive dashboards for stakeholder presentations',
-      'Applied advanced statistical techniques for data insights'
-    ],
-    difficulty: 4,
-    icon: '🗿'
-  },
-  {
-    id: 'quantium-analytics',
-    title: 'Quantium Data Analytics Simulation',
-    description: 'Performed transaction analysis with dashboards and A/B testing',
-    period: 'February 2024',
-    technologies: ['Python', 'Tableau', 'Excel'],
-    achievements: [
-      'Analyzed transaction patterns and customer behavior',
-      'Conducted A/B testing for business optimization',
-      'Crafted informative presentations for stakeholders'
-    ],
-    difficulty: 3,
-    icon: '🐯'
+    icon: '/assets/projects/webdev.jpg'
   },
   {
     id: 'zomato-analysis',
@@ -166,8 +138,36 @@ export const projects: Project[] = [
       'Created interactive dashboards for data visualization'
     ],
     difficulty: 5,
-    icon: '🦁'
-  }
+    icon: '/assets/projects/zomato.png'
+  },
+  {
+    id: 'bcg-simulation',
+    title: 'BCG Data Science Simulation',
+    description: 'Predicted customer churn to enhance retention strategies',
+    period: 'October 2024',
+    technologies: ['Python', 'Tableau', 'Excel'],
+    achievements: [
+      'Developed predictive models for customer churn analysis',
+      'Created comprehensive dashboards for stakeholder presentations',
+      'Applied advanced statistical techniques for data insights'
+    ],
+    difficulty: 4,
+    icon: '/assets/projects/data-science.png'
+  },
+  {
+    id: 'quantium-analytics',
+    title: 'Quantium Data Analytics Simulation',
+    description: 'Performed transaction analysis with dashboards and A/B testing',
+    period: 'February 2024',
+    technologies: ['Python', 'Tableau', 'Excel'],
+    achievements: [
+      'Analyzed transaction patterns and customer behavior',
+      'Conducted A/B testing for business optimization',
+      'Crafted informative presentations for stakeholders'
+    ],
+    difficulty: 3,
+    icon: '/assets/projects/ab-test.png'
+  },
 ];
 
 export const certifications: Certification[] = [
@@ -177,7 +177,7 @@ export const certifications: Certification[] = [
     issuer: 'Amazon Web Services',
     date: 'January 2025',
     description: 'Mastered cloud computing fundamentals and AWS core services',
-    icon: '📜'
+    icon: '/assets/certificates/aws.png'
   },
   {
     id: 'devops-aws',
@@ -185,7 +185,7 @@ export const certifications: Certification[] = [
     issuer: 'Amazon Web Services',
     date: 'January 2025',
     description: 'Advanced DevOps practices and AWS deployment strategies',
-    icon: '🛠️'
+    icon: '/assets/certificates/aws.png'
   },
   {
     id: 'godrej-robotics',
@@ -193,7 +193,7 @@ export const certifications: Certification[] = [
     issuer: 'Godrej',
     date: 'November 2024',
     description: 'Robotics and Automation principles and applications',
-    icon: '🤖'
+    icon: '/assets/certificates/godrej.png'
   },
   {
     id: 'google-advanced-data',
@@ -201,7 +201,7 @@ export const certifications: Certification[] = [
     issuer: 'Google',
     date: 'December 2024',
     description: 'Advanced statistical analysis and data visualization techniques',
-    icon: '📊'
+    icon: '/assets/certificates/google.png'
   },
   {
     id: 'google-bi',
@@ -209,7 +209,7 @@ export const certifications: Certification[] = [
     issuer: 'Google',
     date: 'November 2023',
     description: 'Business intelligence and dashboard creation expertise',
-    icon: '📈'
+    icon: '/assets/certificates/google.png'
   },
   {
     id: 'ibm-eda',
@@ -217,7 +217,7 @@ export const certifications: Certification[] = [
     issuer: 'IBM',
     date: 'August 2023',
     description: 'Exploratory Data Analysis techniques for machine learning',
-    icon: '🔬'
+    icon: '/assets/certificates/ibm.png'
   },
   {
     id: 'google-data-analysis',
@@ -225,7 +225,7 @@ export const certifications: Certification[] = [
     issuer: 'Google',
     date: 'August 2023',
     description: 'Comprehensive data analysis and visualization skills',
-    icon: '🔍'
+    icon: '/assets/certificates/google.png'
   }
 ];
 

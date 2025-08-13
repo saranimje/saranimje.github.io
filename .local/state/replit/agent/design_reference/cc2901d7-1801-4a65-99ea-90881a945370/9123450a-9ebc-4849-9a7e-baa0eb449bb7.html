@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sara Nimje - Pixel Knight Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Old+Standard+TT:wght@400;700&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-purple': '#4C1D95',
+                        'deep-purple': '#581C87',
+                        'emerald': '#047857',
+                        'deep-emerald': '#065F46',
+                        'royal-gold': '#D97706',
+                        'deep-gold': '#B45309',
+                        'prussian': '#1E3A8A',
+                        'deep-prussian': '#1E40AF'
+                    },
+                    fontFamily: {
+                        'cinzel': ['Cinzel Decorative', 'serif'],
+                        'old-standard': ['Old Standard TT', 'serif'],
+                        'uncial': ['Uncial Antiqua', 'serif']
+                    },
+                    animation: {
+                        'pixel-float': 'pixelFloat 2s ease-in-out infinite',
+                        'dragon-cartwheel': 'dragonCartwheel 1s ease-in-out',
+                        'fade-in': 'fadeIn 0.6s ease-out',
+                        'slide-up': 'slideUp 0.8s ease-out'
+                    },
+                    keyframes: {
+                        pixelFloat: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        dragonCartwheel: {
+                            '0%': { transform: 'rotate(0deg) scale(1)' },
+                            '50%': { transform: 'rotate(180deg) scale(1.2)' },
+                            '100%': { transform: 'rotate(360deg) scale(1)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        img, .pixel-art {
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+        
+        .pixel-border {
+            border-image: url("data:image/svg+xml,%3csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m0,0h100v100h-100z' fill='none' stroke='%23D97706' stroke-width='2'/%3e%3c/svg%3e") 2;
+        }
+        
+        .tooltip {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        
+        .tooltip-trigger:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .section-transition {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .active-section {
+            display: block;
+        }
+
+        .inactive-section {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 dark:bg-black text-gray-100 font-old-standard transition-colors duration-300">
+    
+    <!-- Header Navigation -->
+    <header class="fixed top-0 w-full z-50 bg-dark-purple/90 dark:bg-deep-purple/90 backdrop-blur-sm border-b-2 border-royal-gold">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <!-- Animated pixel knight sprite -->
+                    <div class="w-8 h-8 bg-royal-gold rounded pixel-art animate-pixel-float"></div>
+                    <h1 class="text-xl font-cinzel text-royal-gold">Sara Nimje</h1>
+                </div>
+                
+                <div class="flex items-center space-x-6">
+                    <div class="hidden md:flex space-x-6">
+                        <div class="tooltip-trigger relative">
+                            <button onclick="showSection('home')" class="nav-link text-gray-200 hover:text-royal-gold transition-colors font-cinzel">Home</button>
+                            <div class="tooltip absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black/90 text-royal-gold px-2 py-1 rounded text-sm">
+                                🏰 The Awakening
+                            </div>
+                        </div>
+                        
+                        <div class="tooltip-trigger relative">
+                            <button onclick="showSection('education')" class="nav-link text-gray-200 hover:text-royal-gold transition-colors font-cinzel">Education</button>
+                            <div class="tooltip absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black/90 text-royal-gold px-2 py-1 rounded text-sm">
+                                📚 Path of Learning
+                            </div>
+                        </div>
+                        
+                        <div class="tooltip-trigger relative">
+                            <button onclick="showSection('experience')" class="nav-link text-gray-200 hover:text-royal-gold transition-colors font-cinzel">Experience</button>
+                            <div class="tooltip absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black/90 text-royal-gold px-2 py-1 rounded text-sm">
+                                🛡️ Trials of the Realms
+                            </div>
+                        </div>
+                        
+                        <div class="tooltip-trigger relative">
+                            <button onclick="showSection('projects')" class="nav-link text-gray-200 hover:text-royal-gold transition-colors font-cinzel">Projects</button>
+                            <div class="tooltip absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black/90 text-royal-gold px-2 py-1 rounded text-sm">
+                                🐉 Dragons Vanquished
+                            </div>
+                        </div>
+                        
+                        <div class="tooltip-trigger relative">
+                            <button onclick="showSection('certifications')" class="nav-link text-gray-200 hover:text-royal-gold transition-colors font-cinzel">Certifications</button>
+                            <div class="tooltip absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black/90 text-royal-gold px-2 py-1 rounded text-sm">
+                                📜 Scrolls of Power
+                            </div>
+                        </div>
+                        
+                        <div class="tooltip-trigger relative">
+                            <button onclick="showSection('contact')" class="nav-link text-gray-200 hover:text-royal-gold transition-colors font-cinzel">Contact</button>
+                            <div class="tooltip absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black/90 text-royal-gold px-2 py-1 rounded text-sm">
+                                🕊️ The Raven's Perch
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Theme Toggle -->
+                    <button onclick="toggleTheme()" class="p-2 rounded-lg bg-emerald hover:bg-deep-emerald transition-colors">
+                        <span id="theme-icon">🗡️</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        
+        <!-- Home Section - The Awakening -->
+        <section id="home" class="section-transition active-section min-h-screen flex items-center justify-center bg-gradient-to-br from-dark-purple to-deep-purple dark:from-gray-900 dark:to-black">
+            <div class="container mx-auto px-4 text-center">
+                <div class="animate-fade-in">
+                    <!-- Hero pixel knight -->
+                    <div class="w-32 h-32 mx-auto mb-8 bg-royal-gold rounded-lg pixel-art animate-pixel-float flex items-center justify-center text-4xl">
+                        ⚔️
+                    </div>
+                    
+                    <h1 class="text-6xl font-cinzel text-royal-gold mb-4 animate-slide-up">Sara Nimje</h1>
+                    <h2 class="text-2xl font-uncial text-emerald mb-6 animate-slide-up" style="animation-delay: 0.2s;">Electronics & Telecommunication Engineer</h2>
+                    <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto animate-slide-up" style="animation-delay: 0.4s;">
+                        A brave knight embarking on quests through the realms of Computer Vision, Data Science, and Web Development. 
+                        Armed with Python, wielding Docker, and protected by the shields of AWS.
+                    </p>
+                    
+                    <button onclick="showSection('education')" class="bg-emerald hover:bg-deep-emerald px-8 py-4 rounded-lg font-cinzel text-lg transition-all transform hover:scale-105 animate-slide-up" style="animation-delay: 0.6s;">
+                        🚀 Begin My Quest
+                    </button>
+                </div>
+                
+                <!-- Hoverable dragon -->
+                <div class="absolute bottom-10 right-10 cursor-pointer" onmouseover="animateDragon()" onclick="animateDragon()">
+                    <div id="dragon" class="w-16 h-16 bg-emerald rounded pixel-art text-2xl flex items-center justify-center">
+                        🐉
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section - Path of Learning -->
+        <section id="education" class="section-transition inactive-section min-h-screen py-20 bg-gradient-to-br from-emerald to-deep-emerald dark:from-gray-800 dark:to-gray-900">
+            <div class="container mx-auto px-4">
+                <h2 class="text-5xl font-cinzel text-royal-gold text-center mb-16">📚 Path of Learning</h2>
+                
+                <div class="max-w-4xl mx-auto">
+                    <!-- Timeline -->
+                    <div class="relative">
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-royal-gold"></div>
+                        
+                        <!-- VJTI Education -->
+                        <div class="relative flex items-center mb-12">
+                            <div class="w-1/2 pr-8 text-right">
+                                <div class="bg-dark-purple/80 p-6 rounded-lg pixel-border">
+                                    <h3 class="text-xl font-cinzel text-royal-gold mb-2">🏰 Veermata Jijabai Technological Institute</h3>
+                                    <p class="text-gray-300">Bachelor of Technology - Electronics & Telecommunication</p>
+                                    <p class="text-emerald font-semibold">CGPA: 8.74</p>
+                                    <p class="text-sm text-gray-400">2022 - 2026</p>
+                                </div>
+                            </div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-royal-gold rounded-full border-4 border-emerald"></div>
+                            <div class="w-1/2 pl-8"></div>
+                        </div>
+                        
+                        <!-- Matrix Academy -->
+                        <div class="relative flex items-center mb-12">
+                            <div class="w-1/2 pr-8"></div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-royal-gold rounded-full border-4 border-emerald"></div>
+                            <div class="w-1/2 pl-8">
+                                <div class="bg-dark-purple/80 p-6 rounded-lg pixel-border">
+                                    <h3 class="text-xl font-cinzel text-royal-gold mb-2">🎓 Matrix Academy</h3>
+                                    <p class="text-gray-300">All India Senior School Certificate (CBSE) - Class 12</p>
+                                    <p class="text-emerald font-semibold">94.8%</p>
+                                    <p class="text-sm text-gray-400">2021</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Muljibhai Mehta School -->
+                        <div class="relative flex items-center">
+                            <div class="w-1/2 pr-8 text-right">
+                                <div class="bg-dark-purple/80 p-6 rounded-lg pixel-border">
+                                    <h3 class="text-xl font-cinzel text-royal-gold mb-2">🏫 Muljibhai Mehta International School</h3>
+                                    <p class="text-gray-300">All India Senior School Examination (CBSE) - Class 10</p>
+                                    <p class="text-emerald font-semibold">98.4%</p>
+                                    <p class="text-sm text-gray-400">2019</p>
+                                </div>
+                            </div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-royal-gold rounded-full border-4 border-emerald"></div>
+                            <div class="w-1/2 pl-8"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section - Trials of the Realms -->
+        <section id="experience" class="section-transition inactive-section min-h-screen py-20 bg-gradient-to-br from-prussian to-deep-prussian dark:from-gray-900 dark:to-black">
+            <div class="container mx-auto px-4">
+                <h2 class="text-5xl font-cinzel text-royal-gold text-center mb-16">🛡️ Trials of the Realms</h2>
+                
+                <div class="max-w-4xl mx-auto">
+                    <!-- Experience Card -->
+                    <div class="bg-dark-purple/80 rounded-lg pixel-border p-8 hover:transform hover:scale-105 transition-all cursor-pointer" onclick="showExperienceDetail('cv-intern')">
+                        <div class="flex items-start space-x-6">
+                            <div class="w-16 h-16 bg-emerald rounded-lg pixel-art flex items-center justify-center text-2xl">
+                                🏰
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-2xl font-cinzel text-royal-gold mb-2">Computer Vision Intern - Research</h3>
+                                <p class="text-emerald font-semibold mb-2">Electrical: Modeling, Computation, and Control Lab - VJTI</p>
+                                <p class="text-gray-400 mb-4">May 2025 – July 2025 | Mumbai, Maharashtra</p>
+                                
+                                <div class="space-y-2">
+                                    <div class="flex items-start space-x-2">
+                                        <span class="text-royal-gold">⚔️</span>
+                                        <p class="text-gray-300">Independently developed a low-latency robotic arm replicating human arm movement using live video input</p>
+                                    </div>
+                                    <div class="flex items-start space-x-2">
+                                        <span class="text-royal-gold">🛡️</span>
+                                        <p class="text-gray-300">Deployed the system on the edge using Docker for portability</p>
+                                    </div>
+                                    <div class="flex items-start space-x-2">
+                                        <span class="text-royal-gold">⚡</span>
+                                        <p class="text-gray-300">Optimized the processing pipeline for real-time performance and minimal delay</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <span class="text-sm bg-royal-gold/20 text-royal-gold px-2 py-1 rounded mr-2">Computer Vision</span>
+                                    <span class="text-sm bg-emerald/20 text-emerald px-2 py-1 rounded mr-2">Docker</span>
+                                    <span class="text-sm bg-prussian/20 text-blue-300 px-2 py-1 rounded">Real-time Processing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IEEE Experience -->
+                    <div class="mt-8 bg-dark-purple/80 rounded-lg pixel-border p-8 hover:transform hover:scale-105 transition-all">
+                        <div class="flex items-start space-x-6">
+                            <div class="w-16 h-16 bg-prussian rounded-lg pixel-art flex items-center justify-center text-2xl">
+                                🌐
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-2xl font-cinzel text-royal-gold mb-2">Web Development Executive</h3>
+                                <p class="text-emerald font-semibold mb-2">IEEE - VJTI</p>
+                                <p class="text-gray-400 mb-4">Winter 2024 – Present | Mumbai</p>
+                                
+                                <div class="space-y-2">
+                                    <div class="flex items-start space-x-2">
+                                        <span class="text-royal-gold">🎨</span>
+                                        <p class="text-gray-300">Leading web development initiatives for IEEE student chapter</p>
+                                    </div>
+                                    <div class="flex items-start space-x-2">
+                                        <span class="text-royal-gold">👥</span>
+                                        <p class="text-gray-300">Collaborating with cross-functional teams to deliver engaging digital experiences</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section - Dragons Vanquished -->
+        <section id="projects" class="section-transition inactive-section min-h-screen py-20 bg-gradient-to-br from-deep-gold to-royal-gold dark:from-gray-800 dark:to-gray-900">
+            <div class="container mx-auto px-4">
+                <h2 class="text-5xl font-cinzel text-white text-center mb-16">🐉 Dragons Vanquished</h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    
+                    <!-- News Analysis Interface Dragon -->
+                    <div class="bg-dark-purple/90 rounded-lg pixel-border p-6 hover:transform hover:scale-105 transition-all cursor-pointer group" onclick="showProjectDetail('news-analysis')">
+                        <div class="text-center mb-4">
+                            <div class="w-20 h-20 mx-auto bg-emerald rounded-lg pixel-art flex items-center justify-center text-3xl group-hover:animate-dragon-cartwheel">
+                                🐉
+                            </div>
+                            <div class="flex justify-center mt-2 space-x-1">
+                                <div class="w-2 h-2 bg-royal-gold rounded-full"></div>
+                                <div class="w-2 h-2 bg-royal-gold rounded-full"></div>
+                                <div class="w-2 h-2 bg-royal-gold rounded-full"></div>
+                                <div class="w-2 h-2 bg-gray-400 rounded-full"></div>
+                                <div class="w-2 h-2 bg-gray-400 rounded-full"></div>
+                            </div>
+                            <p class="text-xs text-gray-400 mt-1">Difficulty: ⭐⭐⭐</p>
+                        </div>
+                        
+                        <h3 class="text-xl font-cinzel text-royal-gold mb-3">News Analysis Interface</h3>
+                        <p class="text-gray-300 text-sm mb-4">Built and deployed a Gradio-based LLM app for company-based live news analysis with sentiment analysis and TTS.</p>
+                        
+                        <div class="flex flex-wrap gap-1 mb-4">
+                            <span class="text-xs bg-royal-gold/20 text-royal-gold px-2 py-1 rounded">🐍 Python</span>
+                            <span class="text-xs bg-emerald/20 text-emerald px-2 py-1 rounded">🤖 Gradio</span>
+                            <span class="text-xs bg-prussian/20 text-blue-300 px-2 py-1 rounded">🧠 NLP</span>
+                        </div>
+                        
+                        <p class="text-xs text-gray-400">March 2025</p>
+                    </div>
+
+                    <!-- Personal Website Dragon -->
+                    <div class="bg-dark-purple/90 rounded-lg pixel-border p-6 hover:transform hover:scale-105 transition-all cursor-pointer group" onclick="showProjectDetail('personal-website')">
+                        <div class="text-center mb-4">
+                            <div class="w-20 h-20 mx-auto bg-prussian rounded-lg pixel-art flex items-center justify-center text-3xl group-hover:animate-dragon-cartwheel">
+                                🐲
+                            </div>
+                            <div class="flex justify-center mt-2 space-x-1">
+                                <div class="w-2 h-2 bg-royal-gold rounded-full"></div>
+                                <div class="w-2 h-2 bg-royal-gold rounded-full"></div>
+                                <div class="w-2 h-2 bg-gray-400 rounded-full"></div>
+                                <div class="w-2 h-2 bg-gray-400 rounded-full"></div>
+                                <div class="w-2 h-2 bg-gray-400 rounded-full"></div>
+                            </div>
+                            <p class="text-xs text-gray-400 mt-1">Difficulty: ⭐⭐</p>
+                        </div>
+                        
+                        <h3 class="text-xl font-cinzel text-royal-gold mb-3">Personal Website Design</h3>
+                        <p class="text-gray-300 text-sm mb-4">Deployed a portfolio website on GitHub Pages with React showcasing modern web development skills.</p>
+                        
+                        <div class="flex flex-wrap gap-1 mb-4">
+                            <span class="text-xs bg-royal-gold/20 text-royal-gold px-2 py-1 rounded">⚛️ React</span>
+                            <span class="text-xs bg-emerald/20 text-emerald px-2 py-1 rounded">🌐 HTML/CSS</span>
+                            <span class="text-xs bg-prussian/20 text-blue-300 px-2 py-1 rounded">📱 JavaScript</span>
+                        </div>
+                        
+                        <p class="text-xs text-gray-400">November 2024</p>
+                    </div>
+
+                    <!-- BCG Data Science Dragon -->
+                    <div class="bg-dark-purple/90 rounded-lg pixel-border p-6 hover:transform hover:scale-105 transition-all cursor-pointer group" onclick="showProjectDetail('bcg-simulation')">
+                        <div class="text-center mb-4">
+                            <div class="w-20 h-20 mx-auto bg-deep-emerald rounded-lg pixel-art flex items-center justify-center text-3xl group-hover:animate-dragon-cartwheel">
+                                🗿
+                            </div>
+                            <div class="flex justify-center mt-2 space-x-1">
+                                <div class="w-2 h-2 bg-royal-gold rounded-full"></div>
+                                <div class="w-2 h-2 bg-royal-gold rounded-full"></div>
+                                <div class="w-2 h-2 bg-royal-gold rounded-full"></div>
+                                <div class="w-2 h-2 bg-royal-gold rounded-full"></div>
+                                <div class="w-2 h-2 bg-gray-400 rounded-full"></div>
+                            </div>
+                            <p class="text-xs text-gray-400 mt-1">Difficulty: ⭐⭐⭐⭐</p>
+                        </div>
+                        
+                        <h3 class="text-xl font-cinzel text-royal-gold mb-3">BCG Data Science Simulation</h3>
+                        <p class="text-gray-300 text-sm mb-4">Predicted customer churn to enhance retention strategies using advanced analytics techniques.</p>
+                        
+                        <div class="flex flex-wrap gap-1 mb-4">
+                            <span class="text-xs bg-royal-gold/20 text-royal-gold px-2 py-1 rounded">🐍 Python</span>
+                            <span class="text-xs bg-emerald/20 text-emerald px-2 py-1 rounded">📊 Tableau</span>
+                            <span class="text-xs bg-prussian/20 text-blue-300 px-2 py-1 rounded">📈 Excel</span>
+                        </div>
+                        
+                        <p class="text-xs text-gray-400">October 2024</p>
+                    </div>
+
+                    <!-- Quantium Analytics Dragon -->
+                    <div class="bg-dark-purple/90 rounded-lg pixel-border p-6 hover:transform hover:scale-105 transition-all cursor-pointer group" onclick="showProjectDetail('quantium-analytics')">
+                        <div class="text-center mb-4">
+                            <div class="w-20 h-20 mx-auto bg-royal-gold rounded-lg pixel-art flex items-center justify-center text-3xl group-hover:animate-dragon-cartwheel">
+                                🐯
+                            </div>
+                            <div class="flex justify-center mt-2 space-x-1">
+                                <div class="w-2 h-2 bg-royal-gold rounded-full"></div>
+                                <div class="w-2 h-2 bg-royal-gold rounded-full"></div>
+                                <div class="w-2 h-2 bg-royal-gold rounded-full"></div>
+                                <div class="w-2 h-2 bg-gray-400 rounded-full"></div>
+                                <div class="w-2 h-2 bg-gray-400 rounded-full"></div>
+                            </div>
+                            <p class="text-xs text-gray-400 mt-1">Difficulty: ⭐⭐⭐</p>
+                        </div>
+                        
+                        <h3 class="text-xl font-cinzel text-royal-gold mb-3">Quantium Data Analytics</h3>
+                        <p class="text-gray-300 text-sm mb-4">Performed transaction analysis with dashboards and A/B testing, crafting informative decks for stakeholders.</p>
+                        
+                        <div class="flex flex-wrap gap-1 mb-4">
+                            <span class="text-xs bg-royal-gold/20 text-royal-gold px-2 py-1 rounded">🐍 Python</span>
+                            <span class="text-xs bg-emerald/20 text-emerald px-2 py-1 rounded">📊 Tableau</span>
+                            <span class="text-xs bg-prussian/20 text-blue-300 px-2 py-1 rounded">📈 Excel</span>
+                        </div>
+                        
+                        <p class="text-xs text-gray-400">February 2024</p>
+                    </div>
+
+                    <!-- Zomato Deep Dive Dragon -->
+                    <div class="bg-dark-purple/90 rounded-lg pixel-border p-6 hover:transform hover:scale-105 transition-all cursor-pointer group" onclick="showProjectDetail('zomato-analysis')">
+                        <div class="text-center mb-4">
+                            <div class="w-20 h-20 mx-auto bg-deep-gold rounded-lg pixel-art flex items-center justify-center text-3xl group-hover:animate-dragon-cartwheel">
+                                🦁
+                            </div>
+                            <div class="flex justify-center mt-2 space-x-1">
+                                <div class="w-2 h-2 bg-royal-gold rounded-full"></div>
+                                <div class="w-2 h-2 bg-royal-gold rounded-full"></div>
+                                <div class="w-2 h-2 bg-royal-gold rounded-full"></div>
+                                <div class="w-2 h-2 bg-royal-gold rounded-full"></div>
+                                <div class="w-2 h-2 bg-royal-gold rounded-full"></div>
+                            </div>
+                            <p class="text-xs text-gray-400 mt-1">Difficulty: ⭐⭐⭐⭐⭐</p>
+                        </div>
+                        
+                        <h3 class="text-xl font-cinzel text-royal-gold mb-3">Zomato Data Deep Dive</h3>
+                        <p class="text-gray-300 text-sm mb-4">Analyzed 30K+ transactions to uncover customer behavior with geo-spatial patterns and predictive modeling.</p>
+                        
+                        <div class="flex flex-wrap gap-1 mb-4">
+                            <span class="text-xs bg-royal-gold/20 text-royal-gold px-2 py-1 rounded">🐍 Python</span>
+                            <span class="text-xs bg-emerald/20 text-emerald px-2 py-1 rounded">🗄️ SQLite</span>
+                            <span class="text-xs bg-prussian/20 text-blue-300 px-2 py-1 rounded">📊 Tableau</span>
+                        </div>
+                        
+                        <p class="text-xs text-gray-400">December 2023</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section - Scrolls of Power -->
+        <section id="certifications" class="section-transition inactive-section min-h-screen py-20 bg-gradient-to-br from-deep-emerald to-emerald dark:from-gray-900 dark:to-gray-800">
+            <div class="container mx-auto px-4">
+                <h2 class="text-5xl font-cinzel text-royal-gold text-center mb-16">📜 Scrolls of Power</h2>
+                
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        
+                        <!-- AWS Fundamentals -->
+                        <div class="bg-dark-purple/90 rounded-lg pixel-border p-6 hover:transform hover:scale-105 transition-all">
+                            <div class="text-center mb-4">
+                                <div class="w-16 h-16 mx-auto bg-royal-gold rounded-lg pixel-art flex items-center justify-center text-2xl">
+                                    📜
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-cinzel text-royal-gold mb-2">AWS Fundamentals Certificate</h3>
+                            <p class="text-gray-300 text-sm mb-3">Mastered cloud computing fundamentals and AWS core services</p>
+                            <p class="text-emerald text-sm font-semibold">January 2025</p>
+                        </div>
+
+                        <!-- DevOps with AWS -->
+                        <div class="bg-dark-purple/90 rounded-lg pixel-border p-6 hover:transform hover:scale-105 transition-all">
+                            <div class="text-center mb-4">
+                                <div class="w-16 h-16 mx-auto bg-prussian rounded-lg pixel-art flex items-center justify-center text-2xl">
+                                    🛠️
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-cinzel text-royal-gold mb-2">DevOps with AWS Specialization</h3>
+                            <p class="text-gray-300 text-sm mb-3">Advanced DevOps practices and AWS deployment strategies</p>
+                            <p class="text-emerald text-sm font-semibold">January 2025</p>
+                        </div>
+
+                        <!-- Godrej Robotics -->
+                        <div class="bg-dark-purple/90 rounded-lg pixel-border p-6 hover:transform hover:scale-105 transition-all">
+                            <div class="text-center mb-4">
+                                <div class="w-16 h-16 mx-auto bg-emerald rounded-lg pixel-art flex items-center justify-center text-2xl">
+                                    🤖
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-cinzel text-royal-gold mb-2">Godrej Robotics Training</h3>
+                            <p class="text-gray-300 text-sm mb-3">Robotics and Automation principles and applications</p>
+                            <p class="text-emerald text-sm font-semibold">November 2024</p>
+                        </div>
+
+                        <!-- Google Advanced Data Analysis -->
+                        <div class="bg-dark-purple/90 rounded-lg pixel-border p-6 hover:transform hover:scale-105 transition-all">
+                            <div class="text-center mb-4">
+                                <div class="w-16 h-16 mx-auto bg-deep-gold rounded-lg pixel-art flex items-center justify-center text-2xl">
+                                    📊
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-cinzel text-royal-gold mb-2">Google Advanced Data Analysis</h3>
+                            <p class="text-gray-300 text-sm mb-3">Advanced statistical analysis and data visualization techniques</p>
+                            <p class="text-emerald text-sm font-semibold">December 2024</p>
+                        </div>
+
+                        <!-- Google Business Intelligence -->
+                        <div class="bg-dark-purple/90 rounded-lg pixel-border p-6 hover:transform hover:scale-105 transition-all">
+                            <div class="text-center mb-4">
+                                <div class="w-16 h-16 mx-auto bg-deep-emerald rounded-lg pixel-art flex items-center justify-center text-2xl">
+                                    📈
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-cinzel text-royal-gold mb-2">Google Business Intelligence</h3>
+                            <p class="text-gray-300 text-sm mb-3">Business intelligence and dashboard creation expertise</p>
+                            <p class="text-emerald text-sm font-semibold">November 2023</p>
+                        </div>
+
+                        <!-- Google Data Analysis -->
+                        <div class="bg-dark-purple/90 rounded-lg pixel-border p-6 hover:transform hover:scale-105 transition-all">
+                            <div class="text-center mb-4">
+                                <div class="w-16 h-16 mx-auto bg-royal-gold rounded-lg pixel-art flex items-center justify-center text-2xl">
+                                    🔍
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-cinzel text-royal-gold mb-2">Google Data Analysis Specialization</h3>
+                            <p class="text-gray-300 text-sm mb-3">Comprehensive data analysis and visualization skills</p>
+                            <p class="text-emerald text-sm font-semibold">August 2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section - The Raven's Perch -->
+        <section id="contact" class="section-transition inactive-section min-h-screen py-20 bg-gradient-to-br from-gray-900 to-black">
+            <div class="container mx-auto px-4">
+                <h2 class="text-5xl font-cinzel text-royal-gold text-center mb-16">🕊️ The Raven's Perch</h2>
+                
+                <div class="max-w-4xl mx-auto">
+                    <div class="grid md:grid-cols-2 gap-12">
+                        
+                        <!-- Contact Information -->
+                        <div class="space-y-8">
+                            <div class="text-center">
+                                <div class="w-24 h-24 mx-auto bg-dark-purple rounded-lg pixel-art flex items-center justify-center text-4xl mb-4 animate-pixel-float">
+                                    🕊️
+                                </div>
+                                <p class="text-gray-300 mb-6">Send a raven to initiate contact for quests, collaborations, or simply to exchange tales of adventure.</p>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-4 p-4 bg-dark-purple/50 rounded-lg">
+                                    <div class="w-12 h-12 bg-emerald rounded pixel-art flex items-center justify-center">
+                                        📱
+                                    </div>
+                                    <div>
+                                        <p class="text-royal-gold font-cinzel">Magical Communication</p>
+                                        <p class="text-gray-300">+91-9890738328</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4 p-4 bg-dark-purple/50 rounded-lg">
+                                    <div class="w-12 h-12 bg-prussian rounded pixel-art flex items-center justify-center">
+                                        ✉️
+                                    </div>
+                                    <div>
+                                        <p class="text-royal-gold font-cinzel">Digital Scroll</p>
+                                        <p class="text-gray-300">ssnimje.b22@et.vjti.ac.in</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4 p-4 bg-dark-purple/50 rounded-lg">
+                                    <div class="w-12 h-12 bg-royal-gold rounded pixel-art flex items-center justify-center">
+                                        📍
+                                    </div>
+                                    <div>
+                                        <p class="text-royal-gold font-cinzel">Kingdom Location</p>
+                                        <p class="text-gray-300">Mumbai, Maharashtra</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Social Links -->
+                            <div class="text-center">
+                                <p class="text-gray-400 mb-4 font-cinzel">Connect Through The Digital Realm</p>
+                                <div class="flex justify-center space-x-6">
+                                    <a href="https://linkedin.com/in/sara-nimje" target="_blank" class="w-12 h-12 bg-prussian rounded pixel-art flex items-center justify-center hover:scale-110 transition-transform">
+                                        🔗
+                                    </a>
+                                    <a href="https://github.com/saranimje" target="_blank" class="w-12 h-12 bg-emerald rounded pixel-art flex items-center justify-center hover:scale-110 transition-transform">
+                                        💻
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact Form -->
+                        <div class="bg-dark-purple/80 rounded-lg pixel-border p-8">
+                            <h3 class="text-2xl font-cinzel text-royal-gold mb-6 text-center">Send a Message</h3>
+                            
+                            <form class="space-y-6">
+                                <!-- TODO: Implement form submission logic -->
+                                <div>
+                                    <label class="block text-gray-300 mb-2 font-cinzel">Your Name</label>
+                                    <input type="text" class="w-full p-3 bg-gray-800 rounded border-2 border-royal-gold/30 text-gray-100 focus:border-royal-gold outline-none pixel-art" placeholder="Enter your name">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-300 mb-2 font-cinzel">Your Email</label>
+                                    <input type="email" class="w-full p-3 bg-gray-800 rounded border-2 border-royal-gold/30 text-gray-100 focus:border-royal-gold outline-none pixel-art" placeholder="Enter your email">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-300 mb-2 font-cinzel">Quest Details</label>
+                                    <textarea rows="4" class="w-full p-3 bg-gray-800 rounded border-2 border-royal-gold/30 text-gray-100 focus:border-royal-gold outline-none pixel-art" placeholder="Describe your quest or collaboration idea..."></textarea>
+                                </div>
+                                
+                                <button type="submit" class="w-full bg-emerald hover:bg-deep-emerald px-6 py-3 rounded font-cinzel text-lg transition-all transform hover:scale-105">
+                                    🕊️ Send Raven
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t-2 border-royal-gold py-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center items-center space-x-4 mb-4">
+                <div class="w-8 h-8 bg-royal-gold rounded pixel-art"></div>
+                <p class="text-gray-300 font-cinzel">© 2025 Sara Nimje - Pixel Knight Resume</p>
+                <div class="w-8 h-8 bg-royal-gold rounded pixel-art"></div>
+            </div>
+            <p class="text-gray-500 text-sm">Crafted with ⚔️ and 🛡️ • Built with React & Tailwind CSS</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        (function() {
+            // Theme Toggle
+            let isDark = true;
+            
+            function toggleTheme() {
+                isDark = !isDark;
+                const icon = document.getElementById('theme-icon');
+                
+                if (isDark) {
+                    document.body.classList.add('dark');
+                    icon.textContent = '🗡️';
+                } else {
+                    document.body.classList.remove('dark');
+                    icon.textContent = '🛡️';
+                }
+            }
+            
+            // Section Navigation
+            function showSection(sectionId) {
+                // Hide all sections
+                const sections = document.querySelectorAll('section');
+                sections.forEach(section => {
+                    section.classList.remove('active-section');
+                    section.classList.add('inactive-section');
+                });
+                
+                // Show target section
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.remove('inactive-section');
+                    targetSection.classList.add('active-section');
+                }
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            
+            // Dragon Animation
+            function animateDragon() {
+                const dragon = document.getElementById('dragon');
+                dragon.classList.add('animate-dragon-cartwheel');
+                
+                setTimeout(() => {
+                    dragon.classList.remove('animate-dragon-cartwheel');
+                }, 1000);
+            }
+            
+            // Project Detail Modal (Simulated)
+            function showProjectDetail(projectId) {
+                // TODO: Implement individual project detail pages
+                alert(`🐉 Opening detailed quest log for: ${projectId}\n\nThis would navigate to a dedicated project page with full details, tech stack visualization, and project outcomes.`);
+            }
+            
+            // Experience Detail Modal (Simulated)
+            function showExperienceDetail(expId) {
+                // TODO: Implement individual experience detail pages
+                alert(`🏰 Opening detailed trial records for: ${expId}\n\nThis would navigate to a dedicated experience page with full job description, achievements, and impact.`);
+            }
+            
+            // Expose functions to global scope for onclick handlers
+            window.toggleTheme = toggleTheme;
+            window.showSection = showSection;
+            window.animateDragon = animateDragon;
+            window.showProjectDetail = showProjectDetail;
+            window.showExperienceDetail = showExperienceDetail;
+            
+            // Initialize on page load
+            document.addEventListener('DOMContentLoaded', function() {
+                // Set initial theme
+                document.body.classList.add('dark');
+                
+                // Add smooth scrolling behavior
+                document.documentElement.style.scrollBehavior = 'smooth';
+                
+                // Add loading animation to nav links
+                const navLinks = document.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        // Add brief loading state
+                        this.style.opacity = '0.5';
+                        setTimeout(() => {
+                            this.style.opacity = '1';
+                        }, 200);
+                    });
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

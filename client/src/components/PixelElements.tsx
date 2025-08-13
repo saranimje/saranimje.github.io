@@ -12,32 +12,6 @@ export function PixelKnight({ className = "w-8 h-8" }: PixelKnightProps) {
   );
 }
 
-interface PixelDragonProps {
-  className?: string;
-  onClick?: () => void;
-}
-
-export function PixelDragon({ className = "w-16 h-16", onClick }: PixelDragonProps) {
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  const handleClick = () => {
-    if (!isAnimating) {
-      setIsAnimating(true);
-      setTimeout(() => setIsAnimating(false), 1000);
-      onClick?.();
-    }
-  };
-
-  return (
-    <div 
-      className={`${className} bg-emerald rounded pixel-art cursor-pointer flex items-center justify-center text-2xl hover-scale ${isAnimating ? 'animate-dragon-cartwheel' : ''}`}
-      onClick={handleClick}
-    >
-      🐉
-    </div>
-  );
-}
-
 interface ProjectDragonProps {
   difficulty: number;
   icon: string;
@@ -71,9 +45,7 @@ export function ProjectDragon({ difficulty, icon, className = "w-20 h-20", isHov
         {Array.from({ length: 5 }, (_, i) => (
           <div
             key={i}
-            className={`w-2 h-2 rounded-full ${
-              i < difficulty ? 'bg-royal-gold' : 'bg-gray-400'
-            }`}
+            className={`w-2 h-2 rounded-full ${i < difficulty ? 'bg-royal-gold' : 'bg-gray-400'}`}
           />
         ))}
       </div>
@@ -87,18 +59,19 @@ export function ProjectDragon({ difficulty, icon, className = "w-20 h-20", isHov
 interface TooltipProps {
   children: React.ReactNode;
   content: string;
-  position?: 'top' | 'bottom';
 }
 
-export function Tooltip({ children, content, position = 'bottom' }: TooltipProps) {
-  const positionClass = position === 'top' ? '-top-8' : '-bottom-8';
-  
+export function Tooltip({ children, content }: TooltipProps) {
   return (
-    <div className="tooltip-trigger relative">
-      {children}
-      <div className={`tooltip absolute ${positionClass} left-1/2 transform -translate-x-1/2 bg-black/90 text-royal-gold px-2 py-1 rounded text-sm whitespace-nowrap`}>
+    <div className="relative group inline-block w-full text-center">
+      {/* Original tab label */}
+      <span className="block group-hover:opacity-0 transition-opacity duration-200 whitespace-nowrap">
+        {children}
+      </span>
+      {/* Tooltip replacement on hover */}
+      <span className="block absolute top-0 left-1/2 -translate-x-1/2 group-hover:opacity-100 opacity-0 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
         {content}
-      </div>
+      </span>
     </div>
   );
 }
@@ -116,9 +89,5 @@ interface PageTransitionProps {
 }
 
 export function PageTransition({ children }: PageTransitionProps) {
-  return (
-    <div className="page-transition animate-fade-in">
-      {children}
-    </div>
-  );
+  return <div className="page-transition animate-fade-in">{children}</div>;
 }
