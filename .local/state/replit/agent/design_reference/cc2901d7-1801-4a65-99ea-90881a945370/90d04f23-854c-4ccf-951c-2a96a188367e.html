@@ -1,0 +1,1207 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sara Nimje - Pixel Knight Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=MedievalSharp&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'cinzel': ['Cinzel', 'serif'],
+                        'medieval': ['MedievalSharp', 'serif'],
+                        'inter': ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        parchment: '#F4F1E8',
+                        royal: '#6B46C1',
+                        gold: '#D4AF37',
+                        deepbrown: '#8B4513',
+                        crimson: '#DC143C',
+                        midnight: '#1E1B4B',
+                        emerald: '#065F46',
+                        silver: '#C0C0C0'
+                    },
+                    backgroundImage: {
+                        'castle-light': "url('https://pixabay.com/get/g778249eb924a7308c4f7e4bb05ec13bf83b469a9b9c32cbc8ae9d4785214888e2c97e6b474f6516b2b0b3bcd297847ff035d9525af3a1fc2829909175abe5e65_1280.jpg')",
+                        'castle-dark': "url('https://pixabay.com/get/g778249eb924a7308c4f7e4bb05ec13bf83b469a9b9c32cbc8ae9d4785214888e2c97e6b474f6516b2b0b3bcd297847ff035d9525af3a1fc2829909175abe5e65_1280.jpg')"
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        .pixel-art {
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: currentColor; }
+        }
+        
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translatey(0px); }
+            50% { transform: translatey(-20px); }
+            100% { transform: translatey(0px); }
+        }
+        
+        .knight-walk {
+            animation: walk 2s steps(4) infinite;
+        }
+        
+        @keyframes walk {
+            0% { background-position-x: 0px; }
+            100% { background-position-x: -128px; }
+        }
+        
+        .dragon-hover:hover {
+            animation: cartwheel 1s ease-in-out;
+        }
+        
+        @keyframes cartwheel {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .scroll-appear {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .scroll-appear.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .page-transition {
+            transition: all 0.5s ease-in-out;
+        }
+        
+        .hidden-page {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+        
+        .visible-page {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="bg-parchment dark:bg-midnight text-deepbrown dark:text-silver font-inter transition-all duration-300">
+
+    <!-- @COMPONENT: Header Navigation -->
+    <header class="fixed top-0 w-full z-50 bg-parchment/90 dark:bg-midnight/90 backdrop-blur-md border-b-2 border-royal dark:border-emerald">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <!-- CUSTOM PIXEL ART: Knight helmet icon -->
+                    <div class="w-10 h-10 bg-royal dark:bg-emerald pixel-art rounded-sm"></div>
+                    <span class="font-cinzel text-xl font-bold text-royal dark:text-emerald">Sara Nimje</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link group relative font-medieval text-lg hover:text-royal dark:hover:text-emerald transition-colors" title="🏰 The Awakening">
+                        Home
+                        <span class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-royal dark:bg-emerald text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity">🏰 The Awakening</span>
+                    </a>
+                    <a href="#education" class="nav-link group relative font-medieval text-lg hover:text-royal dark:hover:text-emerald transition-colors" title="📚 Path of Learning">
+                        Education
+                        <span class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-royal dark:bg-emerald text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity">📚 Path of Learning</span>
+                    </a>
+                    <a href="#experience" class="nav-link group relative font-medieval text-lg hover:text-royal dark:hover:text-emerald transition-colors" title="🛡️ Trials of the Realms">
+                        Experience
+                        <span class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-royal dark:bg-emerald text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity">🛡️ Trials of the Realms</span>
+                    </a>
+                    <a href="#projects" class="nav-link group relative font-medieval text-lg hover:text-royal dark:hover:text-emerald transition-colors" title="🐉 Dragons Vanquished">
+                        Projects
+                        <span class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-royal dark:bg-emerald text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity">🐉 Dragons Vanquished</span>
+                    </a>
+                    <a href="#certifications" class="nav-link group relative font-medieval text-lg hover:text-royal dark:hover:text-emerald transition-colors" title="📜 Scrolls of Power">
+                        Certifications
+                        <span class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-royal dark:bg-emerald text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity">📜 Scrolls of Power</span>
+                    </a>
+                    <a href="#contact" class="nav-link group relative font-medieval text-lg hover:text-royal dark:hover:text-emerald transition-colors" title="🕊️ The Raven's Perch">
+                        Contact
+                        <span class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-royal dark:bg-emerald text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity">🕊️ The Raven's Perch</span>
+                    </a>
+                </div>
+                
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="p-2 rounded-lg bg-royal/10 dark:bg-emerald/10 hover:bg-royal/20 dark:hover:bg-emerald/20 transition-colors">
+                    <span class="light-icon text-2xl">⚔️</span>
+                    <span class="dark-icon text-2xl hidden">🛡️</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <!-- @END_COMPONENT: Header Navigation -->
+
+    <!-- @COMPONENT: Home Page - The Awakening -->
+    <section id="home" class="page-section min-h-screen pt-20 bg-castle-light dark:bg-castle-dark bg-cover bg-center relative">
+        <div class="absolute inset-0 bg-parchment/80 dark:bg-midnight/80"></div>
+        <div class="relative z-10 container mx-auto px-6 flex items-center min-h-screen">
+            <div class="flex flex-col lg:flex-row items-center justify-between w-full">
+                <div class="lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0">
+                    <h1 class="font-cinzel text-6xl font-bold text-royal dark:text-emerald mb-4">
+                        The Legend of<br>
+                        <span class="typewriter text-gold dark:text-silver">Sara Nimje</span>
+                    </h1>
+                    <p class="text-xl text-deepbrown dark:text-silver mb-8 font-inter">
+                        Electronics & Telecommunication Knight<br>
+                        <span class="font-medieval text-lg text-royal dark:text-emerald">VJTI • Class of 2026</span>
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-center lg:justify-start space-x-4">
+                            <!-- CUSTOM PIXEL ART: Level indicator -->
+                            <div class="flex items-center space-x-2">
+                                <span class="font-medieval text-lg">Level:</span>
+                                <div class="bg-royal dark:bg-emerald text-white px-3 py-1 rounded font-bold">22</div>
+                            </div>
+                            <!-- CUSTOM PIXEL ART: XP Bar -->
+                            <div class="flex items-center space-x-2">
+                                <span class="font-medieval text-lg">XP:</span>
+                                <div class="w-32 h-4 bg-gray-300 dark:bg-gray-700 rounded-full overflow-hidden">
+                                    <div class="w-4/5 h-full bg-gradient-to-r from-gold to-royal dark:from-silver dark:to-emerald"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="bg-royal dark:bg-emerald hover:bg-royal/80 dark:hover:bg-emerald/80 text-white font-medieval text-xl px-8 py-4 rounded-lg transition-all transform hover:scale-105 shadow-lg">
+                            Begin My Quest
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 flex justify-center">
+                    <!-- CUSTOM PIXEL ART: Animated knight sprite -->
+                    <div class="relative">
+                        <div class="w-64 h-64 bg-royal/20 dark:bg-emerald/20 rounded-lg border-4 border-royal dark:border-emerald pixel-art float">
+                            <!-- Placeholder for animated knight -->
+                            <div class="w-full h-full flex items-center justify-center">
+                                <div class="w-32 h-48 bg-royal dark:bg-emerald knight-walk pixel-art rounded"></div>
+                            </div>
+                        </div>
+                        <!-- Floating particles effect -->
+                        <div class="absolute -top-4 -left-4 w-4 h-4 bg-gold rounded-full float"></div>
+                        <div class="absolute -top-2 -right-6 w-3 h-3 bg-silver rounded-full float" style="animation-delay: 1s;"></div>
+                        <div class="absolute -bottom-4 -right-4 w-5 h-5 bg-crimson rounded-full float" style="animation-delay: 2s;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Home Page -->
+
+    <!-- @COMPONENT: Education Page - Path of Learning -->
+    <section id="education" class="page-section min-h-screen py-20 bg-gradient-to-b from-parchment to-royal/10 dark:from-midnight dark:to-emerald/10 hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="font-cinzel text-5xl font-bold text-center text-royal dark:text-emerald mb-16">
+                Path of Learning
+            </h2>
+            
+            <!-- Timeline Tower -->
+            <div class="relative max-w-4xl mx-auto">
+                <!-- Central tower line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-2 bg-royal dark:bg-emerald h-full rounded-full"></div>
+                
+                <!-- Education milestones -->
+                <div class="space-y-16">
+                    <!-- VJTI -->
+                    <div class="flex items-center scroll-appear">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border-2 border-royal dark:border-emerald">
+                                <h3 class="font-cinzel text-2xl font-bold text-royal dark:text-emerald">VJTI</h3>
+                                <p class="font-medieval text-lg text-deepbrown dark:text-silver">Bachelor of Technology</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Electronics & Telecommunication</p>
+                                <div class="mt-2 flex items-center justify-end space-x-2">
+                                    <span class="bg-gold text-white px-2 py-1 rounded text-sm font-bold">8.74 CGPA</span>
+                                    <span class="text-royal dark:text-emerald font-medieval">2026</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- CUSTOM PIXEL ART: Castle/tower icon -->
+                        <div class="w-16 h-16 bg-royal dark:bg-emerald rounded-full border-4 border-white dark:border-gray-800 pixel-art flex items-center justify-center relative z-10">
+                            <div class="w-8 h-8 bg-gold rounded"></div>
+                        </div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+                    
+                    <!-- Class 12 -->
+                    <div class="flex items-center scroll-appear">
+                        <div class="w-1/2 pr-8"></div>
+                        <!-- CUSTOM PIXEL ART: Banner icon -->
+                        <div class="w-16 h-16 bg-gold rounded-full border-4 border-white dark:border-gray-800 pixel-art flex items-center justify-center relative z-10">
+                            <div class="w-8 h-8 bg-royal dark:bg-emerald rounded"></div>
+                        </div>
+                        <div class="w-1/2 pl-8">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border-2 border-gold">
+                                <h3 class="font-cinzel text-2xl font-bold text-gold">Matrix Academy</h3>
+                                <p class="font-medieval text-lg text-deepbrown dark:text-silver">CBSE Class 12</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">All India Senior School Certificate</p>
+                                <div class="mt-2 flex items-center space-x-2">
+                                    <span class="bg-royal dark:bg-emerald text-white px-2 py-1 rounded text-sm font-bold">94.8%</span>
+                                    <span class="text-gold font-medieval">2021</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Class 10 -->
+                    <div class="flex items-center scroll-appear">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border-2 border-crimson">
+                                <h3 class="font-cinzel text-2xl font-bold text-crimson">Muljibhai Mehta International School</h3>
+                                <p class="font-medieval text-lg text-deepbrown dark:text-silver">CBSE Class 10</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">All India Senior School Examination</p>
+                                <div class="mt-2 flex items-center justify-end space-x-2">
+                                    <span class="bg-crimson text-white px-2 py-1 rounded text-sm font-bold">98.4%</span>
+                                    <span class="text-crimson font-medieval">2019</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- CUSTOM PIXEL ART: Scroll icon -->
+                        <div class="w-16 h-16 bg-crimson rounded-full border-4 border-white dark:border-gray-800 pixel-art flex items-center justify-center relative z-10">
+                            <div class="w-8 h-8 bg-gold rounded"></div>
+                        </div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Education Page -->
+
+    <!-- @COMPONENT: Experience Page - Trials of the Realms -->
+    <section id="experience" class="page-section min-h-screen py-20 bg-gradient-to-b from-royal/10 to-parchment dark:from-emerald/10 dark:to-midnight hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="font-cinzel text-5xl font-bold text-center text-royal dark:text-emerald mb-16">
+                Trials of the Realms
+            </h2>
+            
+            <div class="max-w-6xl mx-auto">
+                <!-- Experience Castle -->
+                <div class="scroll-appear">
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border-4 border-royal dark:border-emerald overflow-hidden">
+                        <div class="bg-royal dark:bg-emerald text-white p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-cinzel text-3xl font-bold">Computer Vision Intern</h3>
+                                    <p class="font-medieval text-xl">Electrical: Modeling, Computation, and Control Lab - VJTI</p>
+                                </div>
+                                <!-- CUSTOM PIXEL ART: Castle icon -->
+                                <div class="w-16 h-16 bg-gold pixel-art rounded-lg flex items-center justify-center">
+                                    <div class="w-8 h-8 bg-royal dark:bg-emerald rounded"></div>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex items-center space-x-4">
+                                <span class="bg-gold text-royal px-3 py-1 rounded font-bold">May 2025 – July 2025</span>
+                                <span class="bg-white/20 px-3 py-1 rounded">Mumbai, Maharashtra</span>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <h4 class="font-cinzel text-xl font-bold text-royal dark:text-emerald mb-4">Quest Achievements:</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-3">
+                                    <!-- CUSTOM PIXEL ART: Achievement badge -->
+                                    <div class="w-6 h-6 bg-gold pixel-art rounded mt-1"></div>
+                                    <p class="text-deepbrown dark:text-silver">Independently developed a low-latency robotic arm replicating human arm movement using live video input</p>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <!-- CUSTOM PIXEL ART: Achievement badge -->
+                                    <div class="w-6 h-6 bg-royal dark:bg-emerald pixel-art rounded mt-1"></div>
+                                    <p class="text-deepbrown dark:text-silver">Deployed the system on the edge using Docker for portability</p>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <!-- CUSTOM PIXEL ART: Achievement badge -->
+                                    <div class="w-6 h-6 bg-crimson pixel-art rounded mt-1"></div>
+                                    <p class="text-deepbrown dark:text-silver">Optimized the processing pipeline for real-time performance and minimal delay</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Skills Arsenal -->
+                            <div class="mt-6">
+                                <h4 class="font-cinzel text-xl font-bold text-royal dark:text-emerald mb-4">Skills Arsenal:</h4>
+                                <div class="flex flex-wrap gap-3">
+                                    <!-- CUSTOM PIXEL ART: Each skill as weapon/tool icon -->
+                                    <span class="bg-royal/10 dark:bg-emerald/10 border border-royal dark:border-emerald text-royal dark:text-emerald px-3 py-1 rounded-lg font-medieval">Computer Vision</span>
+                                    <span class="bg-royal/10 dark:bg-emerald/10 border border-royal dark:border-emerald text-royal dark:text-emerald px-3 py-1 rounded-lg font-medieval">Docker</span>
+                                    <span class="bg-royal/10 dark:bg-emerald/10 border border-royal dark:border-emerald text-royal dark:text-emerald px-3 py-1 rounded-lg font-medieval">Python</span>
+                                    <span class="bg-royal/10 dark:bg-emerald/10 border border-royal dark:border-emerald text-royal dark:text-emerald px-3 py-1 rounded-lg font-medieval">Real-time Processing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- IEEE Experience -->
+                <div class="mt-12 scroll-appear">
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border-4 border-gold overflow-hidden">
+                        <div class="bg-gold text-royal p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-cinzel text-3xl font-bold">Web Development Executive</h3>
+                                    <p class="font-medieval text-xl">IEEE VJTI</p>
+                                </div>
+                                <!-- CUSTOM PIXEL ART: Guild emblem -->
+                                <div class="w-16 h-16 bg-royal pixel-art rounded-lg flex items-center justify-center">
+                                    <div class="w-8 h-8 bg-gold rounded"></div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <span class="bg-royal text-white px-3 py-1 rounded font-bold">Winter 2024 – Present</span>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <p class="text-deepbrown dark:text-silver font-inter">
+                                Leading web development initiatives for the IEEE student chapter, creating digital experiences for the engineering community.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Experience Page -->
+
+    <!-- @COMPONENT: Projects Page - Dragons Vanquished -->
+    <section id="projects" class="page-section min-h-screen py-20 bg-gradient-to-b from-parchment to-royal/10 dark:from-midnight dark:to-emerald/10 hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="font-cinzel text-5xl font-bold text-center text-royal dark:text-emerald mb-16">
+                Dragons Vanquished
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Project Dragon 1: News Analysis Interface -->
+                <div class="dragon-hover scroll-appear cursor-pointer project-card" data-project="news-analysis">
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border-4 border-royal dark:border-emerald overflow-hidden transform transition-all hover:scale-105">
+                        <div class="bg-royal dark:bg-emerald text-white p-6 text-center">
+                            <!-- CUSTOM PIXEL ART: Dragon sprite -->
+                            <div class="w-20 h-20 bg-gold pixel-art rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <div class="w-12 h-12 bg-royal dark:bg-emerald rounded"></div>
+                            </div>
+                            <h3 class="font-cinzel text-xl font-bold">News Analysis Interface</h3>
+                            <div class="flex justify-center mt-2">
+                                <span class="bg-gold text-royal px-2 py-1 rounded text-sm font-bold">Difficulty: Expert</span>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <p class="text-sm text-deepbrown dark:text-silver mb-4">
+                                Built and deployed a Gradio-based LLM app for company-based live news analysis with sentiment analysis, translation, and TTS.
+                            </p>
+                            
+                            <!-- Weapons Used (Tech Stack) -->
+                            <div class="mb-4">
+                                <h4 class="font-medieval text-sm font-bold text-royal dark:text-emerald mb-2">Weapons Used:</h4>
+                                <div class="flex flex-wrap gap-1">
+                                    <!-- CUSTOM PIXEL ART: Tech icons as weapons -->
+                                    <span class="bg-royal/10 text-royal dark:bg-emerald/10 dark:text-emerald px-2 py-1 rounded text-xs">Python</span>
+                                    <span class="bg-royal/10 text-royal dark:bg-emerald/10 dark:text-emerald px-2 py-1 rounded text-xs">Gradio</span>
+                                    <span class="bg-royal/10 text-royal dark:bg-emerald/10 dark:text-emerald px-2 py-1 rounded text-xs">Hugging Face</span>
+                                    <span class="bg-royal/10 text-royal dark:bg-emerald/10 dark:text-emerald px-2 py-1 rounded text-xs">NLP</span>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <span class="font-medieval text-xs text-gray-500">March 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Dragon 2: Personal Website -->
+                <div class="dragon-hover scroll-appear cursor-pointer project-card" data-project="personal-website">
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border-4 border-gold overflow-hidden transform transition-all hover:scale-105">
+                        <div class="bg-gold text-royal p-6 text-center">
+                            <!-- CUSTOM PIXEL ART: Dragon sprite -->
+                            <div class="w-20 h-20 bg-royal pixel-art rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <div class="w-12 h-12 bg-gold rounded"></div>
+                            </div>
+                            <h3 class="font-cinzel text-xl font-bold">Personal Website Design</h3>
+                            <div class="flex justify-center mt-2">
+                                <span class="bg-royal text-white px-2 py-1 rounded text-sm font-bold">Difficulty: Intermediate</span>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <p class="text-sm text-deepbrown dark:text-silver mb-4">
+                                Deployed a portfolio website on GitHub Pages with React, showcasing modern web development skills.
+                            </p>
+                            
+                            <div class="mb-4">
+                                <h4 class="font-medieval text-sm font-bold text-gold mb-2">Weapons Used:</h4>
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="bg-gold/10 text-gold px-2 py-1 rounded text-xs">JavaScript</span>
+                                    <span class="bg-gold/10 text-gold px-2 py-1 rounded text-xs">HTML</span>
+                                    <span class="bg-gold/10 text-gold px-2 py-1 rounded text-xs">CSS</span>
+                                    <span class="bg-gold/10 text-gold px-2 py-1 rounded text-xs">React</span>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <span class="font-medieval text-xs text-gray-500">November 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Dragon 3: BCG Data Science -->
+                <div class="dragon-hover scroll-appear cursor-pointer project-card" data-project="bcg-simulation">
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border-4 border-crimson overflow-hidden transform transition-all hover:scale-105">
+                        <div class="bg-crimson text-white p-6 text-center">
+                            <!-- CUSTOM PIXEL ART: Dragon sprite -->
+                            <div class="w-20 h-20 bg-gold pixel-art rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <div class="w-12 h-12 bg-crimson rounded"></div>
+                            </div>
+                            <h3 class="font-cinzel text-xl font-bold">BCG Data Science Simulation</h3>
+                            <div class="flex justify-center mt-2">
+                                <span class="bg-gold text-crimson px-2 py-1 rounded text-sm font-bold">Difficulty: Advanced</span>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <p class="text-sm text-deepbrown dark:text-silver mb-4">
+                                Predicted customer churn to enhance retention strategies using advanced analytics techniques.
+                            </p>
+                            
+                            <div class="mb-4">
+                                <h4 class="font-medieval text-sm font-bold text-crimson mb-2">Weapons Used:</h4>
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="bg-crimson/10 text-crimson px-2 py-1 rounded text-xs">Python</span>
+                                    <span class="bg-crimson/10 text-crimson px-2 py-1 rounded text-xs">Tableau</span>
+                                    <span class="bg-crimson/10 text-crimson px-2 py-1 rounded text-xs">Excel</span>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <span class="font-medieval text-xs text-gray-500">October 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Dragon 4: Quantium Analytics -->
+                <div class="dragon-hover scroll-appear cursor-pointer project-card" data-project="quantium-analytics">
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border-4 border-royal dark:border-emerald overflow-hidden transform transition-all hover:scale-105">
+                        <div class="bg-royal dark:bg-emerald text-white p-6 text-center">
+                            <!-- CUSTOM PIXEL ART: Dragon sprite -->
+                            <div class="w-20 h-20 bg-silver pixel-art rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <div class="w-12 h-12 bg-royal dark:bg-emerald rounded"></div>
+                            </div>
+                            <h3 class="font-cinzel text-xl font-bold">Quantium Data Analytics</h3>
+                            <div class="flex justify-center mt-2">
+                                <span class="bg-silver text-royal px-2 py-1 rounded text-sm font-bold">Difficulty: Advanced</span>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <p class="text-sm text-deepbrown dark:text-silver mb-4">
+                                Performed transaction analysis with dashboards and A/B testing, crafting informative decks for stakeholders.
+                            </p>
+                            
+                            <div class="mb-4">
+                                <h4 class="font-medieval text-sm font-bold text-royal dark:text-emerald mb-2">Weapons Used:</h4>
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="bg-royal/10 text-royal dark:bg-emerald/10 dark:text-emerald px-2 py-1 rounded text-xs">Python</span>
+                                    <span class="bg-royal/10 text-royal dark:bg-emerald/10 dark:text-emerald px-2 py-1 rounded text-xs">Tableau</span>
+                                    <span class="bg-royal/10 text-royal dark:bg-emerald/10 dark:text-emerald px-2 py-1 rounded text-xs">Excel</span>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <span class="font-medieval text-xs text-gray-500">February 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Dragon 5: Zomato Data Deep Dive -->
+                <div class="dragon-hover scroll-appear cursor-pointer project-card" data-project="zomato-analysis">
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border-4 border-gold overflow-hidden transform transition-all hover:scale-105">
+                        <div class="bg-gold text-royal p-6 text-center">
+                            <!-- CUSTOM PIXEL ART: Dragon sprite -->
+                            <div class="w-20 h-20 bg-crimson pixel-art rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <div class="w-12 h-12 bg-gold rounded"></div>
+                            </div>
+                            <h3 class="font-cinzel text-xl font-bold">Zomato Data Deep Dive</h3>
+                            <div class="flex justify-center mt-2">
+                                <span class="bg-crimson text-white px-2 py-1 rounded text-sm font-bold">Difficulty: Expert</span>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <p class="text-sm text-deepbrown dark:text-silver mb-4">
+                                Analyzed 30K+ transactions to uncover customer behavior and geo-spatial patterns using regression and dashboards.
+                            </p>
+                            
+                            <div class="mb-4">
+                                <h4 class="font-medieval text-sm font-bold text-gold mb-2">Weapons Used:</h4>
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="bg-gold/10 text-gold px-2 py-1 rounded text-xs">Python</span>
+                                    <span class="bg-gold/10 text-gold px-2 py-1 rounded text-xs">Tableau</span>
+                                    <span class="bg-gold/10 text-gold px-2 py-1 rounded text-xs">SQLite</span>
+                                    <span class="bg-gold/10 text-gold px-2 py-1 rounded text-xs">Excel</span>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <span class="font-medieval text-xs text-gray-500">December 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Projects Page -->
+
+    <!-- @COMPONENT: Certifications Page - Scrolls of Power -->
+    <section id="certifications" class="page-section min-h-screen py-20 bg-gradient-to-b from-royal/10 to-parchment dark:from-emerald/10 dark:to-midnight hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="font-cinzel text-5xl font-bold text-center text-royal dark:text-emerald mb-16">
+                Scrolls of Power
+            </h2>
+            
+            <!-- Certification Carousel -->
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- AWS Fundamentals -->
+                    <div class="scroll-appear">
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border-4 border-royal dark:border-emerald overflow-hidden transform transition-all hover:scale-105">
+                            <div class="bg-royal dark:bg-emerald text-white p-6 text-center">
+                                <!-- CUSTOM PIXEL ART: Scroll icon -->
+                                <div class="w-16 h-16 bg-gold pixel-art rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                    <div class="w-8 h-8 bg-royal dark:bg-emerald rounded"></div>
+                                </div>
+                                <h3 class="font-cinzel text-lg font-bold">AWS Fundamentals</h3>
+                                <p class="font-medieval text-sm mt-2">January 2025</p>
+                            </div>
+                            <div class="p-4">
+                                <p class="text-sm text-deepbrown dark:text-silver text-center">
+                                    Cloud computing mastery and infrastructure knowledge
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- DevOps with AWS -->
+                    <div class="scroll-appear">
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border-4 border-gold overflow-hidden transform transition-all hover:scale-105">
+                            <div class="bg-gold text-royal p-6 text-center">
+                                <!-- CUSTOM PIXEL ART: Scroll icon -->
+                                <div class="w-16 h-16 bg-royal pixel-art rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                    <div class="w-8 h-8 bg-gold rounded"></div>
+                                </div>
+                                <h3 class="font-cinzel text-lg font-bold">DevOps with AWS</h3>
+                                <p class="font-medieval text-sm mt-2">January 2025</p>
+                            </div>
+                            <div class="p-4">
+                                <p class="text-sm text-deepbrown dark:text-silver text-center">
+                                    Advanced deployment and automation specialization
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Godrej Robotics -->
+                    <div class="scroll-appear">
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border-4 border-crimson overflow-hidden transform transition-all hover:scale-105">
+                            <div class="bg-crimson text-white p-6 text-center">
+                                <!-- CUSTOM PIXEL ART: Scroll icon -->
+                                <div class="w-16 h-16 bg-gold pixel-art rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                    <div class="w-8 h-8 bg-crimson rounded"></div>
+                                </div>
+                                <h3 class="font-cinzel text-lg font-bold">Godrej Robotics</h3>
+                                <p class="font-medieval text-sm mt-2">November 2024</p>
+                            </div>
+                            <div class="p-4">
+                                <p class="text-sm text-deepbrown dark:text-silver text-center">
+                                    Robotics and automation training program
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Google Advanced Data Analysis -->
+                    <div class="scroll-appear">
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border-4 border-royal dark:border-emerald overflow-hidden transform transition-all hover:scale-105">
+                            <div class="bg-royal dark:bg-emerald text-white p-6 text-center">
+                                <!-- CUSTOM PIXEL ART: Scroll icon -->
+                                <div class="w-16 h-16 bg-silver pixel-art rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                    <div class="w-8 h-8 bg-royal dark:bg-emerald rounded"></div>
+                                </div>
+                                <h3 class="font-cinzel text-lg font-bold">Google Advanced Data Analysis</h3>
+                                <p class="font-medieval text-sm mt-2">December 2024</p>
+                            </div>
+                            <div class="p-4">
+                                <p class="text-sm text-deepbrown dark:text-silver text-center">
+                                    Advanced analytics and machine learning
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Google Business Intelligence -->
+                    <div class="scroll-appear">
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border-4 border-gold overflow-hidden transform transition-all hover:scale-105">
+                            <div class="bg-gold text-royal p-6 text-center">
+                                <!-- CUSTOM PIXEL ART: Scroll icon -->
+                                <div class="w-16 h-16 bg-crimson pixel-art rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                    <div class="w-8 h-8 bg-gold rounded"></div>
+                                </div>
+                                <h3 class="font-cinzel text-lg font-bold">Google Business Intelligence</h3>
+                                <p class="font-medieval text-sm mt-2">November 2023</p>
+                            </div>
+                            <div class="p-4">
+                                <p class="text-sm text-deepbrown dark:text-silver text-center">
+                                    Strategic business intelligence and reporting
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- IBM EDA -->
+                    <div class="scroll-appear">
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border-4 border-crimson overflow-hidden transform transition-all hover:scale-105">
+                            <div class="bg-crimson text-white p-6 text-center">
+                                <!-- CUSTOM PIXEL ART: Scroll icon -->
+                                <div class="w-16 h-16 bg-silver pixel-art rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                    <div class="w-8 h-8 bg-crimson rounded"></div>
+                                </div>
+                                <h3 class="font-cinzel text-lg font-bold">IBM EDA for ML</h3>
+                                <p class="font-medieval text-sm mt-2">August 2023</p>
+                            </div>
+                            <div class="p-4">
+                                <p class="text-sm text-deepbrown dark:text-silver text-center">
+                                    Exploratory data analysis for machine learning
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Certifications Page -->
+
+    <!-- @COMPONENT: Contact Page - The Raven's Perch -->
+    <section id="contact" class="page-section min-h-screen py-20 bg-gradient-to-b from-parchment to-royal/10 dark:from-midnight dark:to-emerald/10 hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="font-cinzel text-5xl font-bold text-center text-royal dark:text-emerald mb-16">
+                The Raven's Perch
+            </h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border-4 border-royal dark:border-emerald overflow-hidden">
+                    <div class="bg-royal dark:bg-emerald text-white p-8 text-center">
+                        <!-- CUSTOM PIXEL ART: Raven delivering message -->
+                        <div class="w-24 h-24 bg-gold pixel-art rounded-lg mx-auto mb-6 float">
+                            <div class="w-full h-full flex items-center justify-center">
+                                <div class="w-12 h-12 bg-royal dark:bg-emerald rounded"></div>
+                            </div>
+                        </div>
+                        <h3 class="font-cinzel text-3xl font-bold mb-4">Send a Message via Raven</h3>
+                        <p class="font-medieval text-lg">Let the ravens carry your message to the realm</p>
+                    </div>
+                    
+                    <div class="p-8">
+                        <!-- Contact Information -->
+                        <div class="grid md:grid-cols-2 gap-8 mb-8">
+                            <div class="space-y-6">
+                                <div class="flex items-center space-x-4">
+                                    <!-- CUSTOM PIXEL ART: Location icon -->
+                                    <div class="w-12 h-12 bg-royal/10 dark:bg-emerald/10 rounded-lg pixel-art flex items-center justify-center">
+                                        <div class="w-6 h-6 bg-royal dark:bg-emerald rounded"></div>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-cinzel text-lg font-bold text-royal dark:text-emerald">Location</h4>
+                                        <p class="text-deepbrown dark:text-silver">Mumbai, Maharashtra</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4">
+                                    <!-- CUSTOM PIXEL ART: Phone icon -->
+                                    <div class="w-12 h-12 bg-gold/10 rounded-lg pixel-art flex items-center justify-center">
+                                        <div class="w-6 h-6 bg-gold rounded"></div>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-cinzel text-lg font-bold text-gold">Contact</h4>
+                                        <p class="text-deepbrown dark:text-silver">+91-9890738328</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4">
+                                    <!-- CUSTOM PIXEL ART: Email icon -->
+                                    <div class="w-12 h-12 bg-crimson/10 rounded-lg pixel-art flex items-center justify-center">
+                                        <div class="w-6 h-6 bg-crimson rounded"></div>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-cinzel text-lg font-bold text-crimson">Email</h4>
+                                        <p class="text-deepbrown dark:text-silver">ssnimjee.b22@et.vjti.ac.in</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Social Links -->
+                            <div class="space-y-6">
+                                <h4 class="font-cinzel text-xl font-bold text-royal dark:text-emerald mb-4">Social Connections</h4>
+                                
+                                <a href="https://linkedin.com/in/sara-nimje" class="flex items-center space-x-4 p-3 rounded-lg bg-royal/10 dark:bg-emerald/10 hover:bg-royal/20 dark:hover:bg-emerald/20 transition-colors">
+                                    <!-- CUSTOM PIXEL ART: LinkedIn icon -->
+                                    <div class="w-10 h-10 bg-royal dark:bg-emerald rounded pixel-art flex items-center justify-center">
+                                        <div class="w-6 h-6 bg-white rounded"></div>
+                                    </div>
+                                    <span class="font-medieval text-royal dark:text-emerald">LinkedIn Profile</span>
+                                </a>
+                                
+                                <a href="https://github.com/saranimje" class="flex items-center space-x-4 p-3 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                                    <!-- CUSTOM PIXEL ART: GitHub icon -->
+                                    <div class="w-10 h-10 bg-gray-800 dark:bg-white rounded pixel-art flex items-center justify-center">
+                                        <div class="w-6 h-6 bg-white dark:bg-gray-800 rounded"></div>
+                                    </div>
+                                    <span class="font-medieval text-gray-800 dark:text-white">GitHub Profile</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact Form -->
+                        <div class="bg-parchment dark:bg-gray-700 p-6 rounded-lg">
+                            <h4 class="font-cinzel text-xl font-bold text-royal dark:text-emerald mb-4">Send a Direct Message</h4>
+                            <form class="space-y-4">
+                                <div>
+                                    <label class="block font-medieval text-deepbrown dark:text-silver mb-2">Your Name</label>
+                                    <input type="text" class="w-full p-3 rounded-lg border border-royal/30 dark:border-emerald/30 bg-white dark:bg-gray-800 text-deepbrown dark:text-silver focus:border-royal dark:focus:border-emerald outline-none transition-colors" placeholder="Enter your noble name">
+                                </div>
+                                <div>
+                                    <label class="block font-medieval text-deepbrown dark:text-silver mb-2">Your Email</label>
+                                    <input type="email" class="w-full p-3 rounded-lg border border-royal/30 dark:border-emerald/30 bg-white dark:bg-gray-800 text-deepbrown dark:text-silver focus:border-royal dark:focus:border-emerald outline-none transition-colors" placeholder="your.email@realm.com">
+                                </div>
+                                <div>
+                                    <label class="block font-medieval text-deepbrown dark:text-silver mb-2">Your Message</label>
+                                    <textarea rows="5" class="w-full p-3 rounded-lg border border-royal/30 dark:border-emerald/30 bg-white dark:bg-gray-800 text-deepbrown dark:text-silver focus:border-royal dark:focus:border-emerald outline-none transition-colors resize-none" placeholder="Share your quest or collaboration ideas..."></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-royal dark:bg-emerald hover:bg-royal/80 dark:hover:bg-emerald/80 text-white font-medieval text-lg py-3 rounded-lg transition-all transform hover:scale-105">
+                                    Send Message via Raven
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Contact Page -->
+
+    <!-- @COMPONENT: Project Detail Modal -->
+    <div id="project-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border-4 border-royal dark:border-emerald max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="bg-royal dark:bg-emerald text-white p-6 flex items-center justify-between">
+                <h3 id="modal-title" class="font-cinzel text-2xl font-bold">Project Details</h3>
+                <button id="close-modal" class="text-2xl hover:text-gray-300 transition-colors">✕</button>
+            </div>
+            <div id="modal-content" class="p-6">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: Project Detail Modal -->
+
+    <!-- @COMPONENT: Footer -->
+    <footer class="bg-deepbrown dark:bg-gray-900 text-parchment py-12 border-t-4 border-royal dark:border-emerald">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="flex justify-center items-center space-x-4 mb-6">
+                    <!-- CUSTOM PIXEL ART: Knight crest -->
+                    <div class="w-12 h-12 bg-gold pixel-art rounded-lg flex items-center justify-center">
+                        <div class="w-6 h-6 bg-royal dark:bg-emerald rounded"></div>
+                    </div>
+                    <span class="font-cinzel text-2xl font-bold text-gold">Sara Nimje</span>
+                </div>
+                <p class="font-medieval text-lg mb-4">Electronics & Telecommunication Knight</p>
+                <p class="text-sm text-gray-400">
+                    © 2025 Sara Nimje. All rights reserved. | Crafted with pixel perfect precision
+                </p>
+                <div class="mt-4 text-xs text-gray-500">
+                    <span class="font-medieval">Level 22 • XP: 15,420 • Guild: VJTI Engineers</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        (function() {
+            // Theme Toggle Functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const lightIcon = document.querySelector('.light-icon');
+            const darkIcon = document.querySelector('.dark-icon');
+            
+            // Check for saved theme preference or default to 'light'
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            
+            if (currentTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+                lightIcon.classList.add('hidden');
+                darkIcon.classList.remove('hidden');
+            }
+            
+            themeToggle.addEventListener('click', function() {
+                document.documentElement.classList.toggle('dark');
+                
+                if (document.documentElement.classList.contains('dark')) {
+                    localStorage.setItem('theme', 'dark');
+                    lightIcon.classList.add('hidden');
+                    darkIcon.classList.remove('hidden');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    lightIcon.classList.remove('hidden');
+                    darkIcon.classList.add('hidden');
+                }
+            });
+            
+            // Navigation Functionality
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.page-section');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    
+                    // Hide all sections
+                    sections.forEach(section => {
+                        section.classList.add('hidden');
+                        section.classList.remove('visible-page');
+                        section.classList.add('hidden-page');
+                    });
+                    
+                    // Show target section with animation
+                    setTimeout(() => {
+                        const targetSection = document.getElementById(targetId);
+                        if (targetSection) {
+                            targetSection.classList.remove('hidden');
+                            setTimeout(() => {
+                                targetSection.classList.remove('hidden-page');
+                                targetSection.classList.add('visible-page');
+                            }, 50);
+                        }
+                    }, 250);
+                });
+            });
+            
+            // Scroll Animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.scroll-appear').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Project Modal Functionality
+            const projectCards = document.querySelectorAll('.project-card');
+            const modal = document.getElementById('project-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+            const closeModal = document.getElementById('close-modal');
+            
+            const projectDetails = {
+                'news-analysis': {
+                    title: 'News Analysis Interface Dragon',
+                    content: `
+                        <div class="space-y-6">
+                            <div class="bg-royal/10 dark:bg-emerald/10 p-6 rounded-lg">
+                                <h4 class="font-cinzel text-xl font-bold text-royal dark:text-emerald mb-4">Quest Overview</h4>
+                                <p class="text-deepbrown dark:text-silver mb-4">
+                                    This legendary dragon was vanquished through the creation of a sophisticated Gradio-based LLM application 
+                                    designed for company-based live news analysis. The dragon's power was harnessed to provide real-time 
+                                    sentiment analysis, multi-language translation capabilities, and text-to-speech functionality.
+                                </p>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="bg-gold/10 p-6 rounded-lg">
+                                    <h4 class="font-medieval text-lg font-bold text-gold mb-3">Weapons Arsenal</h4>
+                                    <ul class="space-y-2 text-deepbrown dark:text-silver">
+                                        <li>• Python (Primary Weapon)</li>
+                                        <li>• Gradio (Interface Magic)</li>
+                                        <li>• Hugging Face (Model Summoning)</li>
+                                        <li>• Transformers (Data Alchemy)</li>
+                                        <li>• NLP Pipelines (Language Mastery)</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-crimson/10 p-6 rounded-lg">
+                                    <h4 class="font-medieval text-lg font-bold text-crimson mb-3">Dragon Abilities Gained</h4>
+                                    <ul class="space-y-2 text-deepbrown dark:text-silver">
+                                        <li>• Live News Monitoring</li>
+                                        <li>• Sentiment Analysis Mastery</li>
+                                        <li>• Multi-language Translation</li>
+                                        <li>• Text-to-Speech Enchantment</li>
+                                        <li>• Real-time Data Processing</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-parchment dark:bg-gray-700 p-6 rounded-lg">
+                                <h4 class="font-cinzel text-lg font-bold text-royal dark:text-emerald mb-3">Battle Strategy</h4>
+                                <p class="text-deepbrown dark:text-silver">
+                                    The dragon was defeated by implementing a sophisticated pipeline that could process live news feeds, 
+                                    analyze sentiment patterns across different companies, and provide multilingual support with audio output. 
+                                    The Gradio interface provided the perfect battleground for user interaction while Hugging Face transformers 
+                                    supplied the magical artifacts needed for advanced NLP operations.
+                                </p>
+                            </div>
+                        </div>
+                    `
+                },
+                'personal-website': {
+                    title: 'Personal Website Design Dragon',
+                    content: `
+                        <div class="space-y-6">
+                            <div class="bg-gold/10 p-6 rounded-lg">
+                                <h4 class="font-cinzel text-xl font-bold text-gold mb-4">Quest Overview</h4>
+                                <p class="text-deepbrown dark:text-silver mb-4">
+                                    This artistic dragon was conquered through the creation of a modern, responsive portfolio website 
+                                    deployed on GitHub Pages. The dragon's essence was captured in clean React components and 
+                                    elegant design patterns that showcase the knight's journey and achievements.
+                                </p>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="bg-royal/10 dark:bg-emerald/10 p-6 rounded-lg">
+                                    <h4 class="font-medieval text-lg font-bold text-royal dark:text-emerald mb-3">Crafting Tools</h4>
+                                    <ul class="space-y-2 text-deepbrown dark:text-silver">
+                                        <li>• JavaScript (Logic Weaving)</li>
+                                        <li>• HTML5 (Structure Foundations)</li>
+                                        <li>• CSS3 (Visual Artistry)</li>
+                                        <li>• React (Component Mastery)</li>
+                                        <li>• GitHub Pages (Deployment Portal)</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-crimson/10 p-6 rounded-lg">
+                                    <h4 class="font-medieval text-lg font-bold text-crimson mb-3">Design Victories</h4>
+                                    <ul class="space-y-2 text-deepbrown dark:text-silver">
+                                        <li>• Responsive Design Excellence</li>
+                                        <li>• Modern UI/UX Patterns</li>
+                                        <li>• Component-based Architecture</li>
+                                        <li>• Cross-browser Compatibility</li>
+                                        <li>• Performance Optimization</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'bcg-simulation': {
+                    title: 'BCG Data Science Simulation Dragon',
+                    content: `
+                        <div class="space-y-6">
+                            <div class="bg-crimson/10 p-6 rounded-lg">
+                                <h4 class="font-cinzel text-xl font-bold text-crimson mb-4">Quest Overview</h4>
+                                <p class="text-deepbrown dark:text-silver mb-4">
+                                    This analytical dragon challenged the knight with complex customer churn prediction scenarios. 
+                                    Through strategic data science techniques and advanced modeling, the dragon's predictive powers 
+                                    were harnessed to enhance customer retention strategies for business success.
+                                </p>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="bg-gold/10 p-6 rounded-lg">
+                                    <h4 class="font-medieval text-lg font-bold text-gold mb-3">Analytics Arsenal</h4>
+                                    <ul class="space-y-2 text-deepbrown dark:text-silver">
+                                        <li>• Python (Data Manipulation)</li>
+                                        <li>• Tableau (Visualization Magic)</li>
+                                        <li>• Excel (Calculation Mastery)</li>
+                                        <li>• Statistical Modeling</li>
+                                        <li>• Predictive Analytics</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-royal/10 dark:bg-emerald/10 p-6 rounded-lg">
+                                    <h4 class="font-medieval text-lg font-bold text-royal dark:text-emerald mb-3">Business Insights</h4>
+                                    <ul class="space-y-2 text-deepbrown dark:text-silver">
+                                        <li>• Customer Behavior Analysis</li>
+                                        <li>• Churn Prediction Models</li>
+                                        <li>• Retention Strategy Development</li>
+                                        <li>• Business Intelligence Reports</li>
+                                        <li>• Stakeholder Presentations</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'quantium-analytics': {
+                    title: 'Quantium Data Analytics Dragon',
+                    content: `
+                        <div class="space-y-6">
+                            <div class="bg-royal/10 dark:bg-emerald/10 p-6 rounded-lg">
+                                <h4 class="font-cinzel text-xl font-bold text-royal dark:text-emerald mb-4">Quest Overview</h4>
+                                <p class="text-deepbrown dark:text-silver mb-4">
+                                    This commerce dragon was defeated through comprehensive transaction analysis and A/B testing mastery. 
+                                    The knight crafted insightful dashboards and informative presentations that revealed hidden patterns 
+                                    in customer behavior and market trends.
+                                </p>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="bg-silver/10 p-6 rounded-lg">
+                                    <h4 class="font-medieval text-lg font-bold text-gray-700 dark:text-silver mb-3">Analysis Tools</h4>
+                                    <ul class="space-y-2 text-deepbrown dark:text-silver">
+                                        <li>• Python (Data Processing)</li>
+                                        <li>• Tableau (Dashboard Creation)</li>
+                                        <li>• Excel (Statistical Analysis)</li>
+                                        <li>• A/B Testing Frameworks</li>
+                                        <li>• Statistical Hypothesis Testing</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gold/10 p-6 rounded-lg">
+                                    <h4 class="font-medieval text-lg font-bold text-gold mb-3">Strategic Outcomes</h4>
+                                    <ul class="space-y-2 text-deepbrown dark:text-silver">
+                                        <li>• Transaction Pattern Analysis</li>
+                                        <li>• Customer Segmentation</li>
+                                        <li>• Performance Optimization</li>
+                                        <li>• Stakeholder Communication</li>
+                                        <li>• Data-Driven Recommendations</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'zomato-analysis': {
+                    title: 'Zomato Data Deep Dive Dragon',
+                    content: `
+                        <div class="space-y-6">
+                            <div class="bg-gold/10 p-6 rounded-lg">
+                                <h4 class="font-cinzel text-xl font-bold text-gold mb-4">Quest Overview</h4>
+                                <p class="text-deepbrown dark:text-silver mb-4">
+                                    The most formidable data dragon ever encountered! This beast hoarded over 30,000 transactions and 
+                                    complex geo-spatial patterns. Through advanced regression techniques and sophisticated dashboard 
+                                    creation, the knight uncovered deep insights into customer behavior and geographical trends.
+                                </p>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="bg-crimson/10 p-6 rounded-lg">
+                                    <h4 class="font-medieval text-lg font-bold text-crimson mb-3">Data Weapons</h4>
+                                    <ul class="space-y-2 text-deepbrown dark:text-silver">
+                                        <li>• Python (Advanced Analytics)</li>
+                                        <li>• Tableau (Geo-visualization)</li>
+                                        <li>• SQLite (Database Mastery)</li>
+                                        <li>• Excel (Data Preparation)</li>
+                                        <li>• Regression Analysis</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-royal/10 dark:bg-emerald/10 p-6 rounded-lg">
+                                    <h4 class="font-medieval text-lg font-bold text-royal dark:text-emerald mb-3">Legendary Discoveries</h4>
+                                    <ul class="space-y-2 text-deepbrown dark:text-silver">
+                                        <li>• 30K+ Transaction Analysis</li>
+                                        <li>• Customer Behavior Patterns</li>
+                                        <li>• Geo-spatial Trend Mapping</li>
+                                        <li>• Predictive Modeling</li>
+                                        <li>• Interactive Dashboards</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-parchment dark:bg-gray-700 p-6 rounded-lg">
+                                <h4 class="font-cinzel text-lg font-bold text-royal dark:text-emerald mb-3">Epic Battle Strategy</h4>
+                                <p class="text-deepbrown dark:text-silver">
+                                    This dragon required the most sophisticated approach combining multiple data science disciplines. 
+                                    The knight employed advanced regression techniques to predict customer behavior while creating 
+                                    compelling geo-spatial visualizations that revealed hidden patterns across different regions. 
+                                    The final victory came through comprehensive dashboard creation that transformed raw data into 
+                                    actionable business insights.
+                                </p>
+                            </div>
+                        </div>
+                    `
+                }
+            };
+            
+            projectCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const projectId = this.getAttribute('data-project');
+                    const project = projectDetails[projectId];
+                    
+                    if (project) {
+                        modalTitle.textContent = project.title;
+                        modalContent.innerHTML = project.content;
+                        modal.classList.remove('hidden');
+                        modal.classList.add('flex');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+            
+            closeModal.addEventListener('click', function() {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = 'auto';
+            });
+            
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Initialize with Home page visible
+            document.getElementById('home').classList.remove('hidden');
+            document.getElementById('home').classList.add('visible-page');
+            
+            // TODO: Implement additional game-like features
+            // - Sound toggle for 8-bit background music
+            // - Achievement system with unlock notifications
+            // - XP progression tracking
+            // - Skill inventory system
+            // - Animated transitions between pages
+        })();
+    </script>
+</body>
+</html>
